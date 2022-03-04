@@ -18,6 +18,11 @@ form {
     "Lucida Sans", Arial, sans-serif;
 }
 
+fieldset {
+  border: 0;
+  grid-column: 1;
+}
+
 legend {
   margin-bottom: 2rem;
 }
