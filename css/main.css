@@ -85,6 +85,6 @@ button:active {
   margin-top: 1rem;
 }
 
-#name-output {
+.name-output {
   font-weight: bold;
 }
