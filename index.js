@@ -1,32 +1,35 @@
 const form = document.querySelector("form");
-let nameInput = document.getElementById("name-input");
-let textInput = document.getElementById("text-input");
-const postSection = document.querySelector(".all-posts");
-createNewPost("Frida", "Lorem ipsum dolor sit amet");
-createNewPost(
-  "Victor",
-  "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet"
-);
+main();
 
-form.addEventListener("Submit", (e) => {
-  console.log("hello");
-});
+function main() {
+  form.addEventListener("Submit", (e) => {
+    console.log("hello");
+  });
+  newPost("Frida", "Lorem ipsum dolor sit amet");
+  newPost(
+    "Victor",
+    "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet"
+  );
+}
 
-function createNewPost(name, text) {
-  const newPost = document.createElement("article");
-  newPost.classList.add("post");
+function newPost(name, text) {
+  const postSection = document.querySelector(".all-posts");
+  const newArticle = createArticle();
 
-  const nameOutput = document.createElement("p");
-  const textOutput = document.createElement("p");
-  nameOutput.classList.add("name-output");
-  textOutput.classList.add("text-output");
+  newArticle.appendChild(getOutput("name-input", name));
+  newArticle.appendChild(getOutput("text-input", text));
+  postSection.appendChild(newArticle);
+}
 
-  const nodeName = document.createTextNode(name);
-  const nodeText = document.createTextNode(text);
-  nameOutput.appendChild(nodeName);
-  textOutput.appendChild(nodeText);
+function createArticle() {
+  const newSection = document.createElement("article");
+  newSection.classList.add("post");
+  return newSection;
+}
 
-  newPost.appendChild(nameOutput);
-  newPost.appendChild(textOutput);
-  postSection.appendChild(newPost);
+function getOutput(input, text) {
+  const output = document.createElement("p");
+  const nodeName = document.createTextNode(text);
+  output.appendChild(nodeName);
+  return output;
 }
