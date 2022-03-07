@@ -10,41 +10,41 @@
 
   <body>
     <div class="wrapper">
-      <header>
+      <section class="post-post">
         <h1>Our Guestbook</h1>
         <h2>Thanks for your stay!</h2>
-      </header>
-      <form>
-        <fieldset>
-          <legend>Feel free to write anything below:</legend>
-          <p>
-            <input
-              type="text"
-              name="name-input"
-              id="name-input"
-              required
-              placeholder="Your name"
-            />
-          </p>
-          <p>
-            <textarea
-              name="text-input"
-              id="text-input"
-              rows="10"
-              cols="25"
-              placeholder="Write anything about us"
-              required
-              maxlength="400"
-            ></textarea>
-          </p>
-          <button type="submit" value="Submit">SUBMIT</button>
-        </fieldset>
-      </form>
+        <form method="post">
+          <fieldset>
+            <legend>Feel free to write anything below:</legend>
+            <p>
+              <input
+                type="text"
+                name="name-input"
+                id="name-input"
+                required
+                placeholder="Your name"
+              />
+            </p>
+            <p>
+              <textarea
+                name="text-input"
+                id="text-input"
+                rows="10"
+                cols="25"
+                placeholder="Write anything about us"
+                required
+                maxlength="400"
+              ></textarea>
+            </p>
+            <button type="submit" value="submit">SUBMIT</button>
+          </fieldset>
+        </form>
+      </section>
 
-      <div class="previous-posts">
+      <section class="previous-posts">
         <h2>Hear from our previous guests</h2>
         <section class="all-posts"></section>
-      </div>
+      </section>
     </div>
   </body>
 </html>

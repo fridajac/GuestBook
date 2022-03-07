@@ -2,14 +2,16 @@ const form = document.querySelector("form");
 main();
 
 function main() {
-  form.addEventListener("Submit", (e) => {
-    console.log("hello");
-  });
-  newPost("Frida", "Lorem ipsum dolor sit amet");
-  newPost(
-    "Victor",
-    "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet"
-  );
+  newPost("Frida", "Det var trevligt tack");
+  form.addEventListener("submit", submitForm);
+}
+
+function submitForm() {
+  const name = document.getElementById("name-input").value;
+  const text = document.getElementById("text-input").value;
+  console.log(name);
+  console.log(text);
+  newPost(name, text);
 }
 
 function newPost(name, text) {
@@ -27,8 +29,10 @@ function createArticle() {
   return newSection;
 }
 
-function getOutput(input, text) {
+function getOutput(className, text) {
   const output = document.createElement("p");
+  output.classList.add(className);
+  if (className === "name-input") output.style.fontWeight = "bold";
   const nodeName = document.createTextNode(text);
   output.appendChild(nodeName);
   return output;

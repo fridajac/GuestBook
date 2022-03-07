@@ -2,21 +2,17 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 45% 55%;
   grid-template-rows: 20% 80%;
   font-size: smaller;
 }
 
-header {
-  margin: 20px 0 0 4rem;
-}
-
-form {
-  grid-column: 1;
-  grid-row: 2;
-  margin-left: 4rem;
+.post-post {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  grid-column: 1;
+  grid-row: 1 / 2;
+  margin-left: 4rem;
 }
 
 fieldset {
@@ -25,6 +21,7 @@ fieldset {
 }
 
 legend {
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
