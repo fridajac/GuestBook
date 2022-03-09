@@ -1,9 +1,10 @@
 const form = document.querySelector("form");
+const button = document.querySelector("button");
 main();
 
 function main() {
   newPost("Frida", "Det var trevligt tack");
-  form.addEventListener("submit", submitForm);
+  button.addEventListener("click", submitForm);
 }
 
 function submitForm() {
@@ -15,7 +16,7 @@ function submitForm() {
 }
 
 function newPost(name, text) {
-  const postSection = document.querySelector(".all-posts");
+  const postSection = document.getElementById("all-posts");
   const newArticle = createArticle();
 
   newArticle.appendChild(getOutput("name-input", name));
