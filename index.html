@@ -15,22 +15,46 @@
 
   <body>
     <style>
+      .btn{
+        background-color: #35cb98;
+        padding: 1rem 2rem;
+      }
+      .btn:hover{
+        background-color: #3d9276;
+      }
       @media (min-width: 1200px) {
         .heading {
           font-size: 4rem;
         }
       }
       .form-grid {
-        /* background-color: #001e3b; */
-        background-color: #9fc4e7;
-        /*color: white;*/
-        color: black;
+        background-color: #754ffe;
+        color: white;
         padding: 5rem;
       }
-      .text-muted {
-        color: aquamarine;
-      }
+      
+    .comment-section {
+    display: block;
+    border-radius: 11px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5%;
+    margin-bottom: 5%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto
+    }
+    .name {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .comment-content {
+        font-size: 14px
+    }
+    body{
+      background-color: #f5f4f9;
+    }
     </style>
+
     <div class="container">
       <div class="row d-flex align-items-center p-5">
         <div class="form-grid col-sm-12 col-md-6 col-lg-6 px-10">
@@ -62,12 +86,31 @@
                 rows="10"
                 required
               ></textarea>
+              <div class="invalid-feedback">Field can not be empty</div>
+              <div class="valid-feedback">Looks good!</div>
+              <button type="submit" class="btn btn-primary my-5">Submit</button>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-6 px-10">Posts</div>
+        <div class="col-sm-12 col-md-6 col-lg-6 px-10">
+          <h1>Hear from our previous guests</h1>
+          <div class="bg-white comment-section">
+            <div class="d-flex flex-row user p-2">
+              <div class="d-flex flex-column ml-2">
+                <span class="name font-weight-bold">Chris Hemsworth</span>
+              </div>
+            </div>
+            <div class="mt-2 p-2">
+              <p class="comment-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
