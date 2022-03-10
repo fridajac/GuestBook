@@ -1,9 +1,9 @@
 from hashlib import new
 from flask import Flask, jsonify, request
 import json
-from post_item import PostItem
+from api.post_item import PostItem
 
-from repository import PostItemRepository
+from api.repository import PostItemRepository
 
 app = Flask(__name__)
 
