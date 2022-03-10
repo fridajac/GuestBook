@@ -13,22 +13,22 @@ function submitForm() {
 }
 
 function createNewComment(name, text) {
-  const allComments = document.getElementById("comments");
-  const commentSection = document.createElement("div");
-  commentSection.classList.add("bg-white");
-  commentSection.classList.add("comment-section");
-  commentSection.innerHTML = `
+  const allPosts = document.getElementById("allPosts");
+  const aCommentSection = document.createElement("div");
+  aCommentSection.classList.add("bg-white");
+  aCommentSection.classList.add("post-section");
+  aCommentSection.innerHTML = `
   <div class="d-flex flex-row user p-2">
   <div class="d-flex flex-column ml-2">
     <span class="name font-weight-bold">${name}</span>
   </div>
     </div>
     <div class="mt-2 p-2">
-  <p class="comment-content">
+  <p class="post-content">
   ${text}
   </p>
 </div>
   </div>
 `;
-  allComments.appendChild(commentSection);
+  allPosts.appendChild(aCommentSection);
 }
