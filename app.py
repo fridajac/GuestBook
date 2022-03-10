@@ -1,9 +1,9 @@
 from hashlib import new
 from flask import Flask, jsonify, request
 import json
-from PostItem import PostItem
+from post_item import PostItem
 
-from PostItemRepository import PostItemRepository
+from repository import PostItemRepository
 
 app = Flask(__name__)
 
@@ -18,10 +18,10 @@ repository = PostItemRepository()
 
 @app.route('/posts', methods=['GET'])
 def get_all():
-    return jsonify([postItem.serialize() for postItem in repository.getPosts()])
+    return jsonify([post_item.serialize() for post_item in repository.get_posts()])
 
 @app.route('/posts', methods=['POST'])
 def create_new():
     data = json.loads(request.data)
-    repository.addPost(PostItem(data['name'], data['text']))
+    repository.add_post(PostItem(data['name'], data['text']))
     return data
