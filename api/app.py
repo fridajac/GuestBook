@@ -11,17 +11,25 @@ app = Flask(__name__)
 def home():
     return 'Hello world'
 
+repository = PostItemRepository()
+print(repository)
+database = "guestbook.db"
+conn = repository.create_connection(database)
+
+if conn is not None:
+    repository.create_table(conn, "CREATE TABLE IF NOT EXISTS posts( name varchar(255), text varchar (2000))")
+else:
+    print("Error! Cannot create the database connection")
+
 if __name__ == "__main__":
     app.run(Debug=True)
 
-repository = PostItemRepository()
-
 @app.route('/posts', methods=['GET'])
 def get_all():
-    return jsonify([post_item.serialize() for post_item in repository.get_posts()])
+    return jsonify([post_item.serialize() for post_item in repository.get_posts(conn)])
 
 @app.route('/posts', methods=['POST'])
 def create_new():
     data = json.loads(request.data)
-    repository.add_post(PostItem(data['name'], data['text']))
+    repository.add_post(conn)
     return data
