@@ -7,13 +7,13 @@ const submitBtn = document
   });
 
 function submitForm() {
-  const name = document.getElementById("inputName").value;
-  const text = document.getElementById("textAreaText").value;
+  const name = document.getElementById("input-name").value;
+  const text = document.getElementById("text-textarea").value;
   createNewComment(name, text);
 }
 
 function createNewComment(name, text) {
-  const allPosts = document.getElementById("allPosts");
+  const allPosts = document.getElementById("all-posts");
   const aCommentSection = document.createElement("div");
   aCommentSection.classList.add("bg-white");
   aCommentSection.classList.add("post-section");

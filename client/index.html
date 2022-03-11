@@ -11,9 +11,6 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-  </head>
-
-  <body>
     <style>
       body {
         background-color: #f5f4f9;
@@ -60,8 +57,15 @@
       .comment-content {
         font-size: 14px;
       }
+      #allPosts {
+        margin-left: 2rem;
+        margin-top: 3rem;
+      }
     </style>
+  </head>
+  <!--Reference: https://getbootstrap.com/-->
 
+  <body>
     <div class="container">
       <div class="row d-flex align-items-start p-5">
         <div
@@ -81,23 +85,23 @@
             autocomplete="off"
           >
             <div class="mb-3">
-              <label for="inputName" class="form-label">Name</label>
+              <label for="input-name" class="form-label">Name</label>
               <input
                 type="text"
-                aria-label="Name"
+                aria-label="input-name"
                 class="form-control"
-                id="inputName"
-                aria-describedby="nameHelp"
+                id="input-name"
+                aria-describedby="input-name"
                 required
               />
               <div class="invalid-feedback">Please enter your name</div>
               <div class="valid-feedback">Looks good!</div>
             </div>
             <div class="mb-3">
-              <label for="textAreaText" class="form-label">Text</label>
+              <label for="text-textarea" class="form-label">Text</label>
               <textarea
                 class="form-control"
-                id="textAreaText"
+                id="text-textarea"
                 rows="10"
                 required
               ></textarea>
@@ -110,9 +114,9 @@
           </form>
         </div>
 
-        <div class="col-sm-12 col-md-6 col-lg-5 px-10 ml-10" id="allPosts">
+        <div class="col-sm-12 col-md-6 col-lg-5 px-10 ml-5" id="all-posts">
           <h1>Hear from our previous guests</h1>
-          <div class="bg-white post-section">
+          <div class="bg-white post-section mb-3">
             <div class="d-flex flex-row user p-2">
               <div class="d-flex flex-column ml-2">
                 <span class="name font-weight-bold">Chris Hemsworth</span>
@@ -130,32 +134,26 @@
         </div>
       </div>
     </div>
+
+    <script>
+      (function () {
+        "use strict";
+        var forms = document.querySelectorAll(".needs-validation");
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+    <script src="index.js"></script>
   </body>
-
-  <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-      "use strict";
-
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.querySelectorAll(".needs-validation");
-
-      // Loop over them and prevent submission
-      Array.prototype.slice.call(forms).forEach(function (form) {
-        form.addEventListener(
-          "submit",
-          function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-
-            form.classList.add("was-validated");
-          },
-          false
-        );
-      });
-    })();
-  </script>
-  <script src="index.js"></script>
 </html>
