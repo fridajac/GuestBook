@@ -1,5 +1,5 @@
 import json
-from api.post_item import PostItem
+from post_item import PostItem
 
 class PostItemRepository:
 
