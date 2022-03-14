@@ -3,15 +3,16 @@ from flask import Flask, jsonify, request
 import json
 from post_item import PostItem
 from repository import PostItemRepository
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def home():
     return 'Hello world'
 
 repository = PostItemRepository()
-print(repository)
 database = "guestbook.db"
 conn = repository.create_connection(database)
 
