@@ -36,6 +36,14 @@ def get_all():
 
 @app.route('/posts', methods=['POST'])
 def create_new():
-    data = json.loads(request.data)
+    try:
+      data = json.loads(request.data)
+    except:
+        return create_json_error('Bad request'), 400
     repository.add_post(conn, data)
     return data, 201
+
+def create_json_error(message):
+    return jsonify({
+        'error': message,
+    })
