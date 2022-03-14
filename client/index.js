@@ -1,12 +1,12 @@
 import { fetchPosts } from "./fetchPosts.js";
 import { postPosts } from "./postPosts.js";
 
-addAllPosts();
+loadPostSection();
 document.getElementById("btn").addEventListener("click", function (event) {
   submitForm();
 });
 
-async function addAllPosts() {
+async function loadPostSection() {
   const result = await fetchPosts();
   for (var i in result) {
     createNewPost(result[i][0], result[i][1]);
@@ -22,10 +22,10 @@ function submitForm() {
 
 function createNewPost(name, text) {
   const allPosts = document.getElementById("all-posts");
-  const aCommentSection = document.createElement("div");
-  aCommentSection.classList.add("bg-white");
-  aCommentSection.classList.add("post-section");
-  aCommentSection.innerHTML = `
+  const postSection = document.createElement("div");
+  postSection.classList.add("bg-white");
+  postSection.classList.add("post-section");
+  postSection.innerHTML = `
   <div class="d-flex flex-row user p-2">
   <div class="d-flex flex-column ml-2">
     <span class="name font-weight-bold">${name}</span>
@@ -38,5 +38,5 @@ function createNewPost(name, text) {
 </div>
   </div>
 `;
-  allPosts.appendChild(aCommentSection);
+  allPosts.appendChild(postSection);
 }
