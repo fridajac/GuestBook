@@ -26,7 +26,14 @@ if __name__ == "__main__":
 
 @app.route('/posts', methods=['GET'])
 def get_all():
-    return jsonify([post_item.serialize() for post_item in repository.get_posts(conn)])
+    # Ska returnera ett JSON-objekt med många objekt av post_items
+    results = repository.get_posts(conn)
+    post_list = []
+    for row in results:
+        t = (row[0], row[1])
+        post_list.append(t)
+    j = json.dumps(post_list)
+    return jsonify(post_list)
 
 @app.route('/posts', methods=['POST'])
 def create_new():

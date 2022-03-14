@@ -13,9 +13,7 @@ class PostItemRepository:
     c = conn.cursor()
     c.execute("SELECT name, text FROM posts;")
     result = c.fetchall()
-    for row in result:
-      print(row)
-    return json.dumps(result)
+    return result
 
   def create_connection(self, db_file):
     conn = None
