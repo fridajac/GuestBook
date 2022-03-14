@@ -1,12 +1,10 @@
 import { fetchPosts } from "./fetchPosts.js";
 import { postPosts } from "./postPosts.js";
 
-const form = document.getElementById("form");
+addAllPosts();
 document.getElementById("btn").addEventListener("click", function (event) {
-  event.preventDefault();
   submitForm();
 });
-addAllPosts();
 
 async function addAllPosts() {
   const result = await fetchPosts();
