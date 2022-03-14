@@ -1,18 +1,24 @@
+import { fetchPosts } from "./fetchPosts.js";
+
 const form = document.getElementById("form");
-const submitBtn = document
-  .getElementById("btn")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    submitForm();
-  });
+document.getElementById("btn").addEventListener("click", function (event) {
+  event.preventDefault();
+  submitForm();
+});
+addAllPosts();
+
+async function addAllPosts() {
+  const result = await fetchPosts();
+  console.log(result);
+}
 
 function submitForm() {
   const name = document.getElementById("input-name").value;
   const text = document.getElementById("text-textarea").value;
-  createNewComment(name, text);
+  createNewPost(name, text);
 }
 
-function createNewComment(name, text) {
+function createNewPost(name, text) {
   const allPosts = document.getElementById("all-posts");
   const aCommentSection = document.createElement("div");
   aCommentSection.classList.add("bg-white");
