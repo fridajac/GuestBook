@@ -15,6 +15,10 @@ class PostItemRepository:
     result = c.fetchall()
     return result
 
+  def delete_posts(self, conn):
+    c = conn.cursor()
+    c.execute("DELETE FROM posts")
+    
   def create_connection(self, db_file):
     conn = None
     try:
