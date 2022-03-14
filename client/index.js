@@ -9,7 +9,9 @@ addAllPosts();
 
 async function addAllPosts() {
   const result = await fetchPosts();
-  console.log(result);
+  for (var i in result) {
+    createNewPost(result[i][0], result[i][1]);
+  }
 }
 
 function submitForm() {
