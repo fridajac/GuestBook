@@ -5,9 +5,9 @@ from sqlite3 import Error
 
 class PostItemRepository:
 
-  def add_post(self, conn):
+  def add_post(self, conn, data):
     c = conn.cursor()
-    c.execute("INSERT INTO posts(name,text) VALUES ('Alice', 'God mat')")
+    c.execute("INSERT INTO posts(name, text) VALUES ('"+data.get('name')+"', '"+data.get('text')+"');")
   
   def get_posts(self, conn):
     c = conn.cursor()

@@ -26,7 +26,6 @@ if __name__ == "__main__":
 
 @app.route('/posts', methods=['GET'])
 def get_all():
-    # Ska returnera ett JSON-objekt med många objekt av post_items
     results = repository.get_posts(conn)
     post_list = []
     for row in results:
@@ -38,5 +37,5 @@ def get_all():
 @app.route('/posts', methods=['POST'])
 def create_new():
     data = json.loads(request.data)
-    repository.add_post(conn)
+    repository.add_post(conn, data)
     return data
