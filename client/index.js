@@ -1,4 +1,5 @@
 import { fetchPosts } from "./fetchPosts.js";
+import { postPosts } from "./postPosts.js";
 
 const form = document.getElementById("form");
 document.getElementById("btn").addEventListener("click", function (event) {
@@ -17,7 +18,8 @@ async function addAllPosts() {
 function submitForm() {
   const name = document.getElementById("input-name").value;
   const text = document.getElementById("text-textarea").value;
-  createNewPost(name, text);
+  var data = { name: name, text: text };
+  postPosts(data);
 }
 
 function createNewPost(name, text) {
