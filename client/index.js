@@ -1,5 +1,4 @@
-import { fetchPosts } from "./fetchPosts.js";
-import { postPosts } from "./fetchPosts.js";
+import { fetchPosts, postPosts } from "./api/post.js";
 
 loadPostSection();
 document.getElementById("btn").addEventListener("click", function (event) {

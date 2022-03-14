@@ -1,7 +1,6 @@
 export async function fetchPosts() {
   var response = await fetch("http://127.0.0.1:5000/posts", {
     method: "GET",
-    headers: {},
   });
 
   if (response.status == 400) {
