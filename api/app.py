@@ -4,6 +4,7 @@ import json
 from post_item import PostItem
 from repository import PostItemRepository
 from flask_cors import CORS
+from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
 CORS(app)
@@ -12,12 +13,28 @@ CORS(app)
 def home():
     return 'Hello world'
 
+@app.route('/static/')
+def send_static(path):
+    return send_from_directory('static', path)
+
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL, 
+    API_URL, 
+    config={
+        'app_name': "GuestBook-Flask-REST-Boilerplate"
+    }
+)
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+# app.register_blueprint(request_api.get_blueprint())
+
 repository = PostItemRepository()
 database = "guestbook.db"
 conn = repository.create_connection(database)
 
 if conn is not None:
-    repository.create_table(conn, "CREATE TABLE IF NOT EXISTS posts( name varchar(255), text varchar (2000))")
+    repository.create_table(conn, "CREATE TABLE IF NOT EXISTS posts(name varchar(255), text varchar (2000))")
 else:
     print("Error! Cannot create the database connection")
 

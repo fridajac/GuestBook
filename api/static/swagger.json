@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Open REST-api for our guestbook",
+    "version": "1.0.0",
+    "title": "GuestBook-Flask-REST-Boilerplate",
+    "contact": {
+      "email": "frida_jacobsson@live.se"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "post",
+      "description": "Everything about your posts"
+    }
+  ],
+  "paths": {
+    "/posts": {
+      "get": {
+        "tags": ["posts"],
+        "summary": "Returns all posts",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "¢ref": "#/components/schemas/posts"
+              }
+            }
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["posts"],
+        "summary": "Create a new post",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Post object that needs to be added to the guestbook",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "¢ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Created",
+            "schema": {
+              "¢ref": "#/components/schemas/Post"
+            }
+          },
+          "400": {
+            "description": "bad request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Post": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "format": "string",
+            "example": "Stellan"
+          },
+          "text": {
+            "type": "string",
+            "format": "string",
+            "example": "Thank you for a great time! I would recommend this place to anyone wanting to enjoy a quiet weekend away from family and friends."
+          }
+        }
+      }
+    }
+  }
+}
