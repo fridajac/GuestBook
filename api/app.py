@@ -1,7 +1,5 @@
-from hashlib import new
 from flask import Flask, jsonify, request
 import json
-from post_item import PostItem
 from repository import PostItemRepository
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
