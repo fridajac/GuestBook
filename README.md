@@ -1,4 +1,28 @@
-# GuestBook v.1 Vulnerable version
-A JS-application build by using Bootstrap. Used to practice SQL Injection Attack and Cross Site scripting.
+# GuestBook
 
-![Skärmavbild 2022-03-09 kl  20 13 29](https://user-images.githubusercontent.com/76013501/157514660-5dc9bdbb-62ab-4c8f-a2a7-b96c3a93b9e8.png)
+<a href="https://github.com/psf/black/blob/main/LICENSE"><img alt="License: MIT" src="https://black.readthedocs.io/en/stable/_static/license.svg"></a>
+
+A simple and vulnerable client in the shape of a guestbook for performing SQL injections attacks 👁️
+
+  - Client build in JavaScript and [Bootstrap](https://getbootstrap.com/)
+  - Python and Flask for building REST-API
+  - [Swagger](https://swagger.io) for documenting API.
+
+
+## Screenshot
+
+<img width="962" alt="Skärmavbild 2022-03-17 kl  14 00 26" src="https://user-images.githubusercontent.com/76013501/158813757-1f963d17-f559-4d4e-918f-c0bb1e1d8f81.png">
+
+## Installation and usage
+
+# Installation
+Requires Python 3.10.0+
+
+# Usage
+You can run flask by using:
+```sh
+flask run
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
